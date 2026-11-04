@@ -42,3 +42,14 @@ Untuk panel admin yang aman, autentikasi dan pemeriksaan izin harus dilakukan di
 
 ## Batasan layanan gratis
 GitHub Pages cocok untuk website statis. Layanan gratis dapat memiliki batas penggunaan, dan tidak otomatis memberikan database atau autentikasi. Periksa ketentuan layanan terbaru sebelum digunakan untuk kebutuhan organisasi berskala besar.
+
+
+## Logo IMTII Kepri
+
+Logo organisasi disimpan pada `assets/logo-imtii-kepri.png` dan digunakan pada navigasi header, footer, serta favicon browser. Jika ingin mengganti logo, pertahankan nama file tersebut atau sesuaikan path pada `index.html`.
+
+
+## Efek interaktif
+Versi ini menambahkan: smooth in-page scrolling, custom cursor untuk perangkat mouse/trackpad, scroll progress bar, header shadow saat halaman digulir, reveal animation saat elemen masuk viewport, dan hover depth pada kartu. Efek cursor otomatis dinonaktifkan pada perangkat layar sentuh. Preferensi `prefers-reduced-motion` juga dihormati.
+
+Tidak ada framework atau build step tambahan. Semua efek dibuat menggunakan CSS dan JavaScript native agar tetap cocok untuk hosting statis GitHub/Vercel.
