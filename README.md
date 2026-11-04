@@ -53,3 +53,12 @@ Logo organisasi disimpan pada `assets/logo-imtii-kepri.png` dan digunakan pada n
 Versi ini menambahkan: smooth in-page scrolling, custom cursor untuk perangkat mouse/trackpad, scroll progress bar, header shadow saat halaman digulir, reveal animation saat elemen masuk viewport, dan hover depth pada kartu. Efek cursor otomatis dinonaktifkan pada perangkat layar sentuh. Preferensi `prefers-reduced-motion` juga dihormati.
 
 Tidak ada framework atau build step tambahan. Semua efek dibuat menggunakan CSS dan JavaScript native agar tetap cocok untuk hosting statis GitHub/Vercel.
+
+
+## Animasi GSAP + ScrollTrigger + Lenis
+
+Website menggunakan GSAP 3.13.0, plugin ScrollTrigger, dan Lenis 1.3.11 melalui CDN. Library dimuat sebelum `script.js`. Implementasi mencakup smooth scrolling, animasi masuk hero, reveal bertahap pada seluruh section/kartu/daftar, parallax ringan pada elemen dekoratif hero, dan progress bar.
+
+**Aksesibilitas dan fallback:** animasi serta smooth scrolling dinonaktifkan ketika `prefers-reduced-motion: reduce` aktif. Jika salah satu library CDN gagal dimuat, navigasi tetap berjalan menggunakan native browser scrolling dan seluruh konten tetap terlihat.
+
+**Catatan deployment:** koneksi internet diperlukan agar library CDN dapat dimuat. Jika ingin self-host library, unduh file GSAP, ScrollTrigger, dan Lenis lalu sesuaikan path `<script>` pada `index.html`.

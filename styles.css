@@ -24,14 +24,7 @@ body.has-custom-cursor .cursor-dot,body.has-custom-cursor .cursor-outline{opacit
 body.has-custom-cursor.cursor-hover .cursor-dot{opacity:0}
 body.has-custom-cursor.cursor-hover .cursor-outline{width:54px;height:54px;background:rgba(214,173,96,.16);border-color:var(--gold)}
 
-/* Scroll reveal */
-body.motion-ready .reveal{opacity:0;transform:translate3d(0,28px,0);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1);will-change:opacity,transform}
-body.motion-ready .reveal.is-visible{opacity:1;transform:translate3d(0,0,0)}
-.value-grid .value-card:nth-child(2),.news-grid .news-card:nth-child(2),.gallery-grid .gallery-tile:nth-child(2){transition-delay:.10s}
-.value-grid .value-card:nth-child(3),.news-grid .news-card:nth-child(3),.gallery-grid .gallery-tile:nth-child(3){transition-delay:.20s}
-.hero-copy{animation:hero-enter .9s cubic-bezier(.2,.7,.2,1) both}
-.hero-visual{animation:hero-enter .95s .12s cubic-bezier(.2,.7,.2,1) both}
-@keyframes hero-enter{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+/* Scroll reveals are controlled by GSAP + ScrollTrigger in script.js. */
 
 /* Subtle interactive depth */
 .value-card,.news-card,.gallery-tile,.join-card{transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
@@ -43,5 +36,13 @@ body.motion-ready .reveal.is-visible{opacity:1;transform:translate3d(0,0,0)}
 .hero-visual:hover .visual-card{transform:rotate(2deg) translateY(-5px);box-shadow:30px 38px 85px #0007}
 
 @media (hover:none),(pointer:coarse){.cursor-dot,.cursor-outline{display:none!important}body.has-custom-cursor,body.has-custom-cursor a,body.has-custom-cursor button{cursor:auto}}
-@media (max-width:680px){body.motion-ready .reveal{transform:translate3d(0,18px,0)}.hero-visual:hover .visual-card{transform:rotate(5deg)}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}body.motion-ready .reveal{opacity:1;transform:none}}
+@media (max-width:680px){.hero-visual:hover .visual-card{transform:rotate(5deg)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+
+/* Lenis integration */
+html.lenis, html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+@media (prefers-reduced-motion:reduce){html.lenis,html.lenis body{scroll-behavior:auto!important}}
