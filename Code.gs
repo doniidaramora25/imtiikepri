@@ -6,7 +6,7 @@
  * 4. Deploy > New deployment > Web app; Execute as: Me.
  * 5. Atur akses sesuai kebijakan organisasi. Jika dipilih Anyone, jangan simpan data sensitif yang tidak diperlukan.
  */
-const SPREADSHEET_ID = 'GANTI_DENGAN_ID_SPREADSHEET';
+const SPREADSHEET_ID = '1_bFa4MAUjDJ_IzkoKAIrKuom-bQ4Vjp28qGj-u6WrdU';
 const SHEET_NAME = 'Pendataan Himpunan';
 const HEADERS = [
   'Timestamp','Status','Nama Perguruan Tinggi','Program Studi','Kota/Kabupaten',
