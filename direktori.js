@@ -1,3 +1,13 @@
+// API GOOGLE APPS SCRIPT
+const APPS_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbyYwEEdF_F9nJFklC27sHw-N1pZSYVJiqYuS6eOK3FSFYvoeW6tpT2nC2g4YD2LAYI8/exec";
+
+// Direktori Himpunan IMTII Kepri
+
+document.addEventListener("DOMContentLoaded", function () {
+    // kode direktori yang sudah ada
+});
+
 (() => {
   'use strict';
   const config = window.IMTII_DIRECTORY_CONFIG || {};
