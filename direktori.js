@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 (() => {
   'use strict';
-  const config = window.IMTII_DIRECTORY_CONFIG || {};
+  const config = {
+  appsScriptUrl: APPS_SCRIPT_URL
+};
   const grid = document.getElementById('directory-grid');
   const count = document.getElementById('directory-count');
   const search = document.getElementById('search-directory');
