@@ -38,3 +38,35 @@ footer,.site-footer{background:#071426;color:#FFFFFF}
 .gallery-section .section-heading h2 {
   color: #0A192F;
 }
+
+
+
+/* Pointer interaction: custom cursor is enabled on fine-pointer desktop devices. */
+.custom-cursor{position:fixed;left:0;top:0;width:34px;height:34px;border:1px solid #C9A45C;border-radius:50%;pointer-events:none;z-index:2000;opacity:0;transform:translate(-50%,-50%) scale(.72);transition:width .22s ease,height .22s ease,background .22s ease,border-color .22s ease,transform .22s ease,opacity .2s ease;mix-blend-mode:normal}
+.custom-cursor span{position:absolute;left:50%;top:50%;width:4px;height:4px;border-radius:50%;background:#C9A45C;transform:translate(-50%,-50%);transition:transform .2s ease}
+body.has-custom-cursor,body.has-custom-cursor a,body.has-custom-cursor button{cursor:none}
+body.has-custom-cursor .custom-cursor{opacity:1}
+body.has-custom-cursor .custom-cursor.is-hover{width:54px;height:54px;background:rgba(201,164,92,.13);border-color:#E7C77F;transform:translate(-50%,-50%) scale(1)}
+body.has-custom-cursor .custom-cursor.is-hover span{transform:translate(-50%,-50%) scale(1.8)}
+/* Editorial news cards respond to pointer hover and keyboard focus. */
+.feature-story,.story-list article{transition:transform .3s ease,background .3s ease,box-shadow .3s ease,border-color .3s ease}
+.feature-story{position:relative}
+.feature-story .story-art{transition:transform .45s ease,filter .35s ease}
+.feature-story:hover .story-art,.feature-story:focus-within .story-art{filter:saturate(1.12);box-shadow:0 18px 38px rgba(0,0,0,.16)}
+.feature-story:hover .story-art:before,.feature-story:focus-within .story-art:before{transform:scale(1.04)}
+.story-art:before{transition:transform .5s ease}
+.story-list article{padding:12px;border:1px solid transparent;border-bottom:1px solid var(--line);border-radius:3px}
+.story-list article:hover,.story-list article:focus-within{transform:translateX(6px);background:rgba(201,164,92,.08);border-color:rgba(201,164,92,.38);box-shadow:0 12px 28px rgba(0,0,0,.12)}
+.story-thumb{overflow:hidden;transition:transform .35s ease,filter .35s ease}
+.story-list article:hover .story-thumb,.story-list article:focus-within .story-thumb{transform:scale(1.025);filter:saturate(1.15)}
+.story-list a,.story-link{transition:gap .25s ease,color .25s ease}
+.story-list article:hover a,.story-list article:focus-within a,.feature-story:hover .story-link,.feature-story:focus-within .story-link{gap:20px;color:#C9A45C}
+.program-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.program-card{overflow:hidden}
+.program-card:after{content:'';position:absolute;left:0;bottom:0;width:100%;height:3px;background:#C9A45C;transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.program-card:hover:after,.program-card:focus-within:after{transform:scaleX(1)}
+.vision-content .vision-statement{padding-top:27px;padding-bottom:29px}
+.vision-statement h3{font-size:clamp(20px,2.1vw,27px);line-height:1.5}
+@media(max-width:900px){.program-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.program-grid{grid-template-columns:1fr}.custom-cursor{display:none}}
+@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.custom-cursor{display:none}body.has-custom-cursor,body.has-custom-cursor a,body.has-custom-cursor button{cursor:auto}.feature-story:hover .story-art:before{transform:none}.story-list article:hover{transform:none}}
