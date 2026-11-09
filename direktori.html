@@ -1,108 +1,59 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0a192f">
-  <meta name="description" content="Direktori Himpunan Mahasiswa Teknik Industri se-Kepulauan Riau.">
-  <title>Direktori Himpunan | IMTII Kepri</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="logo-imtii-kepri.png">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="direktori.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a192f">
+<meta name="description" content="Portal Keanggotaan IMTII Wilayah Kepulauan Riau.">
+<title>Portal Keanggotaan | IMTII Kepri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="portal.css">
 </head>
-<body>
-  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="index.html#beranda" aria-label="IMTII Kepri beranda">
-        <img class="brand-logo" src="logo-imtii-kepri.png" alt="Logo IMTII Wilayah Kepulauan Riau">
-        <span class="brand-copy"><strong>IKATAN MAHASISWA TEKNIK INDUSTRI INDONESIA</strong><medium>Wilayah Kepulauan Riau</medium></span>
-      </a>
-      <button class="menu-toggle" aria-label="Buka navigasi" aria-expanded="false">☰</button>
-      <nav class="nav-links" aria-label="Navigasi utama">
-        <a href="index.html#profil">Profil</a><a href="index.html#program">Program Kerja</a>
-        <a href="index.html#berita">Berita</a><a href="direktori.html" aria-current="page">Direktori Himpunan</a>
-        <a class="nav-cta" href="#form-pendataan">Ajukan Data</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="directory-hero">
-      <div class="container directory-hero-grid">
-        <div>
-          <p class="eyebrow"><span></span> JEJARING TEKNIK INDUSTRI KEPULAUAN RIAU</p>
-          <h1>Direktori <em>Himpunan.</em></h1>
-          <p class="directory-lead">Pusat informasi himpunan mahasiswa Teknik Industri di Kepulauan Riau untuk memperkuat komunikasi, kolaborasi, dan sinergi lintas kampus.</p>
-          <div class="directory-actions"><a class="button button-gold" href="#daftar-himpunan">Jelajahi direktori ↓</a><a class="button button-outline" href="#form-pendataan">Daftarkan himpunan</a></div>
-        </div>
-        <aside class="directory-note"><span class="note-kicker">STANDAR DATA</span><strong>Terdata.<br>Ditinjau.<br>Terverifikasi.</strong><p>Profil publik ditampilkan setelah pemeriksaan Admin IMTII Kepri. Pencatatan direktori bukan bukti keanggotaan resmi IMTII.</p></aside>
-      </div>
-    </section>
-
-    <section class="directory-section section" id="daftar-himpunan">
-      <div class="container">
-        <div class="section-heading"><div><p class="eyebrow dark">DATA ORGANISASI</p><h2>Himpunan di Kepulauan Riau</h2></div><p>Gunakan pencarian dan filter untuk menemukan himpunan. Kontak hanya ditampilkan jika disetujui untuk publikasi.</p></div>
-        <div class="directory-tools">
-          <label class="search-box"><span aria-hidden="true">⌕</span><input id="search-directory" type="search" placeholder="Cari nama himpunan atau kampus..." aria-label="Cari nama himpunan atau kampus"></label>
-          <label class="filter-label" for="filter-city">Wilayah</label>
-          <select id="filter-city"><option value="">Semua wilayah</option><option value="Batam">Batam</option><option value="Tanjungpinang">Tanjungpinang</option></select>
-        </div>
-        <div class="directory-stats"><span id="directory-count">Memuat data...</span><span class="verification-key"><i></i> Profil terverifikasi</span></div>
-        <div id="directory-grid" class="directory-grid" aria-live="polite">
-          <article class="directory-empty"><h3>Memuat direktori</h3><p>Data akan ditampilkan setelah sumber data dikonfigurasi.</p></article>
-        </div>
-        <p class="directory-disclaimer">Data organisasi dan kontak harus diperiksa secara berkala. Jika ada informasi yang keliru, hubungi Admin IMTII Kepri untuk pembaruan.</p>
-      </div>
-    </section>
-
-    <section class="directory-form-section section" id="form-pendataan">
-      <div class="container directory-form-layout">
-        <div class="form-intro"><p class="eyebrow">PENDATAAN RESMI</p><h2>Ajukan profil <em>himpunan.</em></h2><p>Formulir ini dapat diisi oleh ketua atau perwakilan yang diberi mandat. Data akan berstatus menunggu verifikasi sampai Admin IMTII Kepri memeriksanya.</p>
-          <div class="form-info"><strong>Siapkan sebelum mengisi</strong><ul><li>Nama resmi organisasi dan perguruan tinggi</li><li>Informasi ketua dan satu perwakilan</li><li>Logo atau dokumen pendukung bila tersedia</li><li>Persetujuan publikasi kontak yang dicantumkan</li></ul></div>
-        </div>
-        <form id="association-form" class="association-form" method="post" target="submission-frame">
-          <div class="form-section-title"><span>01</span><div><h3>Identitas kampus & himpunan</h3><p>Pastikan nama ditulis sesuai informasi resmi.</p></div></div>
-          <label>Nama perguruan tinggi <input name="campus_name" required maxlength="180" placeholder="Contoh: Institut Teknologi Batam"></label>
-          <div class="form-row"><label>Program studi <input name="study_program" required maxlength="120" value="Teknik Industri"></label><label>Kota/kabupaten <select name="city" required><option value="">Pilih wilayah</option><option>Batam</option><option>Tanjungpinang</option></select></label></div>
-          <label>Nama resmi himpunan <input name="association_name" required maxlength="180" placeholder="Nama organisasi mahasiswa"></label>
-          <div class="form-row"><label>Singkatan organisasi <input name="short_name" maxlength="50" placeholder="Jika ada"></label><label>Tahun berdiri <input name="founded_year" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" placeholder="YYYY"></label></div>
-          <label>Deskripsi singkat <textarea name="description" rows="3" maxlength="700" placeholder="Profil organisasi, fokus kegiatan, atau informasi singkat"></textarea></label>
-          <label>URL logo organisasi <input name="logo_url" type="url" placeholder="https://..."></label>
-          <div class="form-row"><label>Instagram resmi <input name="instagram_url" type="url" placeholder="https://instagram.com/..."></label><label>Website organisasi <input name="website_url" type="url" placeholder="https://... (opsional)"></label></div>
-
-          <div class="form-section-title"><span>02</span><div><h3>Ketua himpunan</h3><p>Kontak pertama untuk koordinasi organisasi.</p></div></div>
-          <label>Nama lengkap ketua <input name="chair_name" required maxlength="150"></label>
-          <div class="form-row"><label>Periode kepengurusan <input name="term_period" required maxlength="50" placeholder="Contoh: 2026/2027"></label><label>WhatsApp ketua <input name="chair_whatsapp" required type="tel" maxlength="30" placeholder="Contoh: 62812... "></label></div>
-          <label>Email ketua atau email organisasi <input name="contact_email" type="email" maxlength="180" placeholder="nama@kampus.ac.id"></label>
-
-          <div class="form-section-title"><span>03</span><div><h3>Perwakilan himpunan</h3><p>Satu orang selain ketua untuk komunikasi cadangan.</p></div></div>
-          <div class="form-row"><label>Nama perwakilan <input name="representative_name" required maxlength="150"></label><label>Jabatan perwakilan <input name="representative_role" required maxlength="100" placeholder="Contoh: Sekretaris Umum"></label></div>
-          <label>WhatsApp perwakilan <input name="representative_whatsapp" required type="tel" maxlength="30" placeholder="Contoh: 62813..."></label>
-
-          <div class="form-section-title"><span>04</span><div><h3>Konfirmasi & persetujuan</h3><p>Data akan diperiksa oleh admin sebelum dipublikasikan.</p></div></div>
-          <label class="consent-check"><input type="checkbox" name="data_accuracy_consent" value="yes" required><span>Saya menyatakan data yang dikirim benar dan saya berwenang mewakili himpunan.</span></label>
-          <label class="consent-check"><input type="checkbox" name="contact_publication_consent" value="yes" required><span>Saya telah memperoleh persetujuan ketua dan perwakilan untuk menyerahkan nomor kontak mereka kepada Admin IMTII Kepri serta menyetujui publikasi kontak yang dipilih untuk kebutuhan organisasi.</span></label>
-          <label class="consent-check"><input type="checkbox" name="verification_consent" value="yes" required><span>Saya memahami bahwa pengiriman formulir tidak otomatis menjadikan himpunan anggota resmi IMTII dan profil hanya akan tampil setelah diverifikasi.</span></label>
-          <button class="button button-gold button-full" type="submit">Kirim data untuk verifikasi ↗</button>
-          <p id="form-status" class="form-status" role="status">Formulir memerlukan URL Web App Google Apps Script agar pengiriman tersimpan.</p>
-          <iframe name="submission-frame" id="submission-frame" title="Status pengiriman formulir" class="hidden-frame"></iframe>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer"><div class="container footer-top"><div class="brand footer-brand"><img class="brand-logo" src="logo-imtii-kepri.png" alt="Logo IMTII Wilayah Kepulauan Riau"><span><strong>IMTII KEPRI</strong><small>Wilayah Kepulauan Riau</small></span></div><p>Integrated Minds, Sustainable Progress.</p><a href="#daftar-himpunan">Kembali ke direktori ↑</a></div><div class="container footer-bottom"><span>© <span id="year"></span> IMTII Wilayah Kepulauan Riau.</span><span>Direktori informasi publik • Verifikasi oleh admin</span></div></footer>
-  <script>
-  window.IMTII_DIRECTORY_CONFIG = {
-    appsScriptUrl: "https://script.google.com/macros/s/AKfycbyYwEEdF_F9nJFklC27sHw-N1pZSYVJiqYuS6eOK3FSFYvoeW6tpT2nC2g4YD2LAYI8/exec",
-    fallbackDataUrl: "data/himpunan.json"
-  };
-</script>
-  <script src="script.js" defer></script>
-  <script src="direktori.js" defer></script>
-</body>
-</html>
+<body class="portal-body">
+<header class="site-header"><div class="container nav-wrap">
+<a class="brand" href="index.html#beranda"><img class="brand-logo" src="logo-imtii-kepri.png" alt="Logo IMTII"><span class="brand-copy"><strong>IKATAN MAHASISWA TEKNIK INDUSTRI INDONESIA</strong><small>WILAYAH KEPULAUAN RIAU</small></span></a>
+<nav class="nav-links"><a href="index.html#tentang">Tentang</a><a href="index.html#program">Program</a><a class="portal-nav-active" href="direktori.html">Keanggotaan</a></nav>
+</div></header>
+<main class="portal-main">
+<section class="portal-shell">
+<div class="portal-intro"><p class="portal-eyebrow">IMTII KEPRI / MEMBER ACCESS</p><h1>Portal <em>Keanggotaan.</em></h1><p>Ruang data terpusat untuk profil himpunan, struktur kepengurusan, database anggota, dan riwayat periode organisasi Teknik Industri di Kepulauan Riau.</p>
+<div class="portal-points"><span><i>01</i> Data organisasi terkelola</span><span><i>02</i> Riwayat kepengurusan</span><span><i>03</i> Akses anggota pribadi</span></div>
+<div class="portal-security"><span class="security-icon">⌑</span><div><strong>Akses terbatas</strong><p>Hanya Super Admin IMTII Kepri yang dapat mengelola dan mengubah data. Anggota hanya dapat melihat profil keanggotaannya sendiri.</p></div></div>
+</div>
+<div class="portal-panel">
+<div id="login-view" class="portal-view">
+<div class="panel-heading"><span class="panel-overline">MEMBER & ADMIN ACCESS</span><h2>Masuk ke akun</h2><p>Gunakan email dan password yang diberikan oleh Super Admin IMTII Kepri.</p></div>
+<form id="login-form" class="portal-form">
+<label>Email terdaftar<input name="email" type="email" autocomplete="username" required placeholder="nama@email.com"></label>
+<label>Password<input name="password" type="password" autocomplete="current-password" required placeholder="Masukkan password"></label>
+<button class="portal-button" type="submit">Login ke Portal <span>↗</span></button>
+<p id="login-status" class="portal-status" role="status">Akun dibuat dan dikelola secara terpusat oleh Super Admin.</p>
+</form>
+</div>
+<div id="dashboard-view" class="portal-view" hidden>
+<div class="dashboard-top"><div><span class="panel-overline">MEMBERSHIP WORKSPACE</span><h2 id="welcome-title">Dashboard</h2><p id="role-label"></p></div><button id="logout-button" class="logout-button" type="button">Keluar ↗</button></div>
+<div id="force-password" class="password-notice" hidden><strong>Keamanan akun</strong><p>Ganti password sementara sebelum melanjutkan.</p></div>
+<div id="admin-dashboard" hidden>
+<div class="portal-stats" id="portal-stats"></div>
+<div class="portal-tabs" role="tablist" aria-label="Data portal">
+<button type="button" class="portal-tab is-active" data-entity="associations">Himpunan</button><button type="button" class="portal-tab" data-entity="members">Anggota</button><button type="button" class="portal-tab" data-entity="leadership">Kepengurusan</button><button type="button" class="portal-tab" data-entity="periods">Riwayat Periode</button>
+</div>
+<div class="data-toolbar"><div><h3 id="table-title">Data Himpunan</h3><p id="table-description">Kelola profil himpunan Teknik Industri di Kepulauan Riau.</p></div><button id="add-record" class="add-button" type="button">+ Tambah data</button></div>
+<div class="table-wrap"><table class="portal-table"><thead id="table-head"></thead><tbody id="table-body"></tbody></table></div>
+<div id="record-editor" class="record-editor" hidden><div class="editor-heading"><div><span class="panel-overline">DATA MANAGEMENT</span><h3 id="editor-title">Tambah data</h3></div><button id="close-editor" type="button" class="icon-close" aria-label="Tutup">×</button></div><form id="record-form" class="portal-form editor-form"></form></div>
+<div id="account-result" class="account-result" hidden></div>
+</div>
+<div id="member-dashboard" hidden>
+<div class="member-card"><span class="panel-overline">PROFIL ANGGOTA</span><h3 id="member-name">Nama anggota</h3><div id="member-details" class="member-details"></div></div>
+<div class="member-actions"><button id="show-password-form" class="add-button" type="button">Ganti password</button></div>
+</div>
+<div id="password-editor" class="record-editor" hidden><div class="editor-heading"><div><span class="panel-overline">ACCOUNT SECURITY</span><h3>Ganti password</h3></div><button id="close-password-editor" type="button" class="icon-close">×</button></div><form id="password-form" class="portal-form editor-form"><label>Password saat ini<input name="old_password" type="password" required autocomplete="current-password"></label><label>Password baru (minimal 12 karakter)<input name="new_password" type="password" minlength="12" required autocomplete="new-password"></label><button class="portal-button" type="submit">Simpan password</button><p id="password-status" class="portal-status" role="status"></p></form></div>
+</div>
+</div>
+</section>
+</main>
+<footer class="portal-footer"><div class="container"><span>© <span id="year"></span> IMTII Wilayah Kepulauan Riau</span><span>INTEGRATED MINDS, SUSTAINABLE PROGRESS</span></div></footer>
+<iframe id="portal-transport" name="portal-transport" title="Portal request transport" hidden></iframe>
+<script>window.IMTII_PORTAL_CONFIG={appsScriptUrl:""};</script>
+<script src="script.js" defer></script><script src="portal.js" defer></script>
+</body></html>
