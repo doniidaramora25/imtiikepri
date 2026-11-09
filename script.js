@@ -8,6 +8,32 @@
 
   if (year) year.textContent = new Date().getFullYear();
 
+  // Custom pointer for desktop; native cursor remains on touch and reduced-motion devices.
+  const cursor = document.querySelector('.custom-cursor');
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (cursor && finePointer && !reduceMotion) {
+    document.body.classList.add('has-custom-cursor');
+    let pointerFrame = 0;
+    window.addEventListener('pointermove', event => {
+      if (event.pointerType !== 'mouse') return;
+      if (pointerFrame) cancelAnimationFrame(pointerFrame);
+      pointerFrame = requestAnimationFrame(() => {
+        cursor.style.left = event.clientX + 'px';
+        cursor.style.top = event.clientY + 'px';
+        cursor.style.opacity = '1';
+      });
+    }, { passive: true });
+    document.addEventListener('pointerover', event => {
+      if (event.target.closest('a, button, .feature-story, .story-list article, .program-card')) cursor.classList.add('is-hover');
+      else cursor.classList.remove('is-hover');
+    });
+    document.addEventListener('pointerdown', () => cursor.classList.add('is-hover'));
+    document.addEventListener('pointerup', () => cursor.classList.remove('is-hover'));
+    document.addEventListener('pointerleave', () => { cursor.style.opacity = '0'; });
+    document.addEventListener('pointerenter', () => { cursor.style.opacity = '1'; });
+  }
+
+
   const closeMenu = () => {
     nav?.classList.remove('open');
     menuButton?.setAttribute('aria-expanded', 'false');
