@@ -31,3 +31,10 @@ body{background:#0A192F;color:#FFFFFF}
 .section p{color:#C8D1DE}
 .section h2 em{color:#C9A45C}
 footer,.site-footer{background:#071426;color:#FFFFFF}
+
+/* Contrast correction: replace white headings only on light backgrounds. */
+.history-section .section-heading h2,
+.programs-section .section-heading h2,
+.gallery-section .section-heading h2 {
+  color: #0A192F;
+}
