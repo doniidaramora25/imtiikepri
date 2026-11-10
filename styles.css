@@ -92,99 +92,54 @@ body.has-custom-cursor .custom-cursor.is-hover span{transform:translate(-50%,-50
 }
 
 
-/* Fluid cursor: layered soft blobs with spring-like trailing motion. */
-.custom-cursor{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:2000;opacity:0;visibility:hidden;filter:blur(5px) contrast(18);mix-blend-mode:screen;transition:opacity .2s ease,visibility .2s ease}
-.custom-cursor.is-visible{opacity:1;visibility:visible}
-.fluid-cursor-blob{position:absolute;left:0;top:0;display:block;width:19px;height:19px;border-radius:50%;background:#DCE8F5;will-change:transform;transition:width .25s ease,height .25s ease,background .25s ease}
-.fluid-cursor-blob.blob-0{width:17px;height:17px;z-index:2}
-.fluid-cursor-blob.blob-1{width:22px;height:22px;opacity:.9}
-.fluid-cursor-blob.blob-2{width:25px;height:25px;opacity:.78}
-.fluid-cursor-blob.blob-3{width:28px;height:28px;opacity:.65}
-.fluid-cursor-blob.blob-4{width:31px;height:31px;opacity:.52}
-.fluid-cursor-blob.blob-5{width:34px;height:34px;opacity:.4}
-.custom-cursor.is-hover .fluid-cursor-blob{background:#FFFFFF}
-.custom-cursor.is-hover .blob-0{width:23px;height:23px}
-.custom-cursor.is-hover .blob-5{width:43px;height:43px}
-.custom-cursor.is-pressed .fluid-cursor-blob{background:#B8D8F2}
-body.has-custom-cursor,body.has-custom-cursor a,body.has-custom-cursor button{cursor:none}
-@media(max-width:720px){.custom-cursor{display:none}}
-@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.custom-cursor{display:none}body.has-custom-cursor,body.has-custom-cursor a,body.has-custom-cursor button{cursor:auto}}
-
-/* Neutralize legacy ring dimensions while fluid cursor is active. */
-body.has-custom-cursor .custom-cursor{width:100%;height:100%;border:0;background:transparent;transform:none}
-body.has-custom-cursor .custom-cursor.is-hover{width:100%;height:100%;border:0;background:transparent;transform:none}
-
-
-/* Fluid cursor palette: crimson-to-red gradient. */
-.fluid-cursor-blob{
-  background:radial-gradient(circle at 32% 28%,#FEE2E2 0%,#F87171 34%,#EF4444 68%,#B91C1C 100%);
-}
-.custom-cursor.is-hover .fluid-cursor-blob{
-  background:radial-gradient(circle at 32% 28%,#FFF1F2 0%,#FDA4AF 30%,#F87171 65%,#DC2626 100%);
-}
-.custom-cursor.is-pressed .fluid-cursor-blob{
-  background:radial-gradient(circle at 32% 28%,#FECACA 0%,#F87171 35%,#DC2626 70%,#991B1B 100%);
-}
-
-
-/* Smooth Cursor Follower — red accent. */
+/* Basic Cursor Follower — solid red, directly tracks pointer position. */
 .custom-cursor{
-  filter:none!important;
-  mix-blend-mode:normal!important;
-}
-body.has-custom-cursor .custom-cursor,
-body.has-custom-cursor .custom-cursor.is-hover{
+  position:fixed;
+  inset:0;
   width:100%;
   height:100%;
-  border:0;
-  background:transparent;
-  transform:none;
+  pointer-events:none;
+  z-index:2000;
+  opacity:0;
+  visibility:hidden;
+  filter:none;
+  mix-blend-mode:normal;
+  transition:opacity .12s ease,visibility .12s ease;
 }
-.smooth-cursor-follower{
+.custom-cursor.is-visible{opacity:1;visibility:visible}
+.cursor-follower-dot{
   position:absolute;
   left:0;
   top:0;
-  width:34px;
-  height:34px;
   display:block;
-  border:1.5px solid #EF4444;
+  width:18px;
+  height:18px;
+  border:2px solid #EF4444;
   border-radius:50%;
-  background:rgba(239,68,68,.10);
-  box-shadow:0 0 12px rgba(239,68,68,.28),inset 0 0 8px rgba(239,68,68,.10);
-  will-change:transform;
-  transition:width .22s ease,height .22s ease,background .22s ease,border-color .22s ease,box-shadow .22s ease;
+  background:rgba(239,68,68,.16);
+  box-shadow:0 0 10px rgba(239,68,68,.3);
+  transform:translate3d(-100px,-100px,0) translate(-50%,-50%);
+  transition:width .15s ease,height .15s ease,background .15s ease,border-color .15s ease;
 }
-.smooth-cursor-follower i{
-  position:absolute;
-  width:6px;
-  height:6px;
-  left:50%;
-  top:50%;
-  border-radius:50%;
-  background:#EF4444;
-  box-shadow:0 0 9px rgba(239,68,68,.8);
-  transform:translate(-50%,-50%);
-}
-.custom-cursor.is-hover .smooth-cursor-follower{
-  width:50px;
-  height:50px;
+.custom-cursor.is-hover .cursor-follower-dot{
+  width:25px;
+  height:25px;
   border-color:#F87171;
-  background:rgba(239,68,68,.17);
-  box-shadow:0 0 20px rgba(239,68,68,.42),inset 0 0 10px rgba(239,68,68,.14);
+  background:rgba(239,68,68,.22);
 }
-.custom-cursor.is-hover .smooth-cursor-follower i{
-  width:8px;
-  height:8px;
-  background:#F87171;
-}
-.custom-cursor.is-pressed .smooth-cursor-follower{
-  width:27px;
-  height:27px;
-  background:rgba(185,28,28,.24);
+.custom-cursor.is-pressed .cursor-follower-dot{
+  width:14px;
+  height:14px;
   border-color:#B91C1C;
+  background:rgba(185,28,28,.28);
 }
-@media(max-width:720px){.smooth-cursor-follower{display:none}}
+body.has-custom-cursor,
+body.has-custom-cursor a,
+body.has-custom-cursor button{cursor:none}
+@media(max-width:720px){.custom-cursor{display:none}}
 @media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){
-  .smooth-cursor-follower{display:none}
-  body.has-custom-cursor,body.has-custom-cursor a,body.has-custom-cursor button{cursor:auto}
+  .custom-cursor{display:none}
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button{cursor:auto}
 }
