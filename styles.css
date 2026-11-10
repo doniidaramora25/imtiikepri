@@ -70,3 +70,23 @@ body.has-custom-cursor .custom-cursor.is-hover span{transform:translate(-50%,-50
 @media(max-width:900px){.program-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){.program-grid{grid-template-columns:1fr}.custom-cursor{display:none}}
 @media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.custom-cursor{display:none}body.has-custom-cursor,body.has-custom-cursor a,body.has-custom-cursor button{cursor:auto}.feature-story:hover .story-art:before{transform:none}.story-list article:hover{transform:none}}
+
+
+/* Regional identity strip: Kepri and Sumbagteng logos below the main header. */
+.regional-identity{background:#0A192F;border-bottom:1px solid rgba(220,232,245,.12);padding:17px 0}
+.regional-identity-inner{display:flex;align-items:center;justify-content:center;gap:clamp(28px,6vw,76px)}
+.regional-logo-item{display:flex;align-items:center;gap:14px;min-width:0}
+.regional-logo-item img{width:58px;height:58px;object-fit:contain;border-radius:50%;background:#fff;padding:4px;flex:0 0 auto}
+.regional-logo-item div{display:flex;flex-direction:column;gap:4px}
+.regional-logo-item strong{font:800 11px/1.35 var(--display);letter-spacing:.09em;color:#fff}
+.regional-logo-item span{font-size:9px;letter-spacing:.04em;color:#C8D1DE}
+.regional-divider{height:42px;width:1px;background:rgba(220,232,245,.25)}
+@media(max-width:520px){
+ .regional-identity{padding:13px 0}
+ .regional-identity-inner{gap:13px}
+ .regional-logo-item{gap:8px}
+ .regional-logo-item img{width:42px;height:42px;padding:3px}
+ .regional-logo-item strong{font-size:8px;letter-spacing:.04em}
+ .regional-logo-item span{font-size:7px}
+ .regional-divider{height:34px}
+}
