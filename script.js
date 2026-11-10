@@ -8,31 +8,43 @@
 
   if (year) year.textContent = new Date().getFullYear();
 
-  // Custom pointer for desktop; native cursor remains on touch and reduced-motion devices.
+  // Fluid cursor: spring-like trailing blobs on fine-pointer desktop devices.
   const cursor = document.querySelector('.custom-cursor');
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   if (cursor && finePointer && !reduceMotion) {
     document.body.classList.add('has-custom-cursor');
-    let pointerFrame = 0;
+    cursor.innerHTML = Array.from({ length: 6 }, (_, i) =>
+      `<i class="fluid-cursor-blob blob-${i}" aria-hidden="true"></i>`
+    ).join('');
+    const blobs = [...cursor.querySelectorAll('.fluid-cursor-blob')];
+    const points = blobs.map(() => ({ x: -100, y: -100 }));
+    let targetX = -100, targetY = -100, active = false, raf = 0;
+    const render = () => {
+      points.forEach((point, i) => {
+        const ease = i === 0 ? 0.42 : 0.19 - i * 0.018;
+        point.x += (targetX - point.x) * ease;
+        point.y += (targetY - point.y) * ease;
+        blobs[i].style.transform = `translate3d(${point.x}px,${point.y}px,0) translate(-50%,-50%)`;
+      });
+      if (active) raf = requestAnimationFrame(render);
+    };
     window.addEventListener('pointermove', event => {
       if (event.pointerType !== 'mouse') return;
-      if (pointerFrame) cancelAnimationFrame(pointerFrame);
-      pointerFrame = requestAnimationFrame(() => {
-        cursor.style.left = event.clientX + 'px';
-        cursor.style.top = event.clientY + 'px';
-        cursor.style.opacity = '1';
-      });
+      targetX = event.clientX;
+      targetY = event.clientY;
+      if (!active) { active = true; raf = requestAnimationFrame(render); }
+      cursor.classList.add('is-visible');
     }, { passive: true });
     document.addEventListener('pointerover', event => {
-      if (event.target.closest('a, button, .feature-story, .story-list article, .program-card')) cursor.classList.add('is-hover');
-      else cursor.classList.remove('is-hover');
+      cursor.classList.toggle('is-hover', Boolean(event.target.closest('a, button, .feature-story, .story-list article, .program-card')));
     });
-    document.addEventListener('pointerdown', () => cursor.classList.add('is-hover'));
-    document.addEventListener('pointerup', () => cursor.classList.remove('is-hover'));
-    document.addEventListener('pointerleave', () => { cursor.style.opacity = '0'; });
-    document.addEventListener('pointerenter', () => { cursor.style.opacity = '1'; });
+    document.addEventListener('pointerdown', () => cursor.classList.add('is-pressed'));
+    document.addEventListener('pointerup', () => cursor.classList.remove('is-pressed'));
+    document.addEventListener('pointerleave', () => cursor.classList.remove('is-visible'));
+    document.addEventListener('pointerenter', () => cursor.classList.add('is-visible'));
+    window.addEventListener('blur', () => { active = false; cancelAnimationFrame(raf); cursor.classList.remove('is-visible'); });
+    window.addEventListener('focus', () => { if (targetX >= 0) { active = true; raf = requestAnimationFrame(render); } });
   }
-
 
   const closeMenu = () => {
     nav?.classList.remove('open');
