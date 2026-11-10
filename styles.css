@@ -90,3 +90,22 @@ body.has-custom-cursor .custom-cursor.is-hover span{transform:translate(-50%,-50
  .regional-logo-item span{font-size:7px}
  .regional-divider{height:34px}
 }
+
+
+/* Fluid cursor: layered soft blobs with spring-like trailing motion. */
+.custom-cursor{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:2000;opacity:0;visibility:hidden;filter:blur(5px) contrast(18);mix-blend-mode:screen;transition:opacity .2s ease,visibility .2s ease}
+.custom-cursor.is-visible{opacity:1;visibility:visible}
+.fluid-cursor-blob{position:absolute;left:0;top:0;display:block;width:19px;height:19px;border-radius:50%;background:#DCE8F5;will-change:transform;transition:width .25s ease,height .25s ease,background .25s ease}
+.fluid-cursor-blob.blob-0{width:17px;height:17px;z-index:2}
+.fluid-cursor-blob.blob-1{width:22px;height:22px;opacity:.9}
+.fluid-cursor-blob.blob-2{width:25px;height:25px;opacity:.78}
+.fluid-cursor-blob.blob-3{width:28px;height:28px;opacity:.65}
+.fluid-cursor-blob.blob-4{width:31px;height:31px;opacity:.52}
+.fluid-cursor-blob.blob-5{width:34px;height:34px;opacity:.4}
+.custom-cursor.is-hover .fluid-cursor-blob{background:#FFFFFF}
+.custom-cursor.is-hover .blob-0{width:23px;height:23px}
+.custom-cursor.is-hover .blob-5{width:43px;height:43px}
+.custom-cursor.is-pressed .fluid-cursor-blob{background:#B8D8F2}
+body.has-custom-cursor,body.has-custom-cursor a,body.has-custom-cursor button{cursor:none}
+@media(max-width:720px){.custom-cursor{display:none}}
+@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.custom-cursor{display:none}body.has-custom-cursor,body.has-custom-cursor a,body.has-custom-cursor button{cursor:auto}}
