@@ -8,33 +8,18 @@
 
   if (year) year.textContent = new Date().getFullYear();
 
-  // Smooth Cursor Follower: one spring-smoothed red ring on desktop pointers.
+  // Basic red cursor follower: tracks the mouse directly without easing or trailing.
   const cursor = document.querySelector('.custom-cursor');
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   if (cursor && finePointer && !reduceMotion) {
     document.body.classList.add('has-custom-cursor');
-    cursor.innerHTML = '<span class="smooth-cursor-follower" aria-hidden="true"><i></i></span>';
-    const follower = cursor.querySelector('.smooth-cursor-follower');
-    let targetX = -100, targetY = -100, currentX = -100, currentY = -100;
-    let active = false, raf = 0;
-
-    const render = () => {
-      currentX += (targetX - currentX) * 0.18;
-      currentY += (targetY - currentY) * 0.18;
-      follower.style.transform = `translate3d(${currentX}px,${currentY}px,0) translate(-50%,-50%)`;
-      if (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) {
-        raf = requestAnimationFrame(render);
-      } else {
-        active = false;
-      }
-    };
+    cursor.innerHTML = '<span class="cursor-follower-dot" aria-hidden="true"></span>';
+    const follower = cursor.querySelector('.cursor-follower-dot');
 
     window.addEventListener('pointermove', event => {
       if (event.pointerType !== 'mouse') return;
-      targetX = event.clientX;
-      targetY = event.clientY;
+      follower.style.transform = `translate3d(${event.clientX}px,${event.clientY}px,0) translate(-50%,-50%)`;
       cursor.classList.add('is-visible');
-      if (!active) { active = true; raf = requestAnimationFrame(render); }
     }, { passive: true });
 
     document.addEventListener('pointerover', event => {
@@ -44,11 +29,7 @@
     document.addEventListener('pointerdown', () => cursor.classList.add('is-pressed'));
     document.addEventListener('pointerup', () => cursor.classList.remove('is-pressed'));
     document.addEventListener('pointerleave', () => cursor.classList.remove('is-visible'));
-    window.addEventListener('blur', () => {
-      active = false;
-      cancelAnimationFrame(raf);
-      cursor.classList.remove('is-visible', 'is-pressed');
-    });
+    window.addEventListener('blur', () => cursor.classList.remove('is-visible', 'is-pressed'));
   }
 
   const closeMenu = () => {
