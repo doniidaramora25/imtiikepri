@@ -125,3 +125,66 @@ body.has-custom-cursor .custom-cursor.is-hover{width:100%;height:100%;border:0;b
 .custom-cursor.is-pressed .fluid-cursor-blob{
   background:radial-gradient(circle at 32% 28%,#FECACA 0%,#F87171 35%,#DC2626 70%,#991B1B 100%);
 }
+
+
+/* Smooth Cursor Follower — red accent. */
+.custom-cursor{
+  filter:none!important;
+  mix-blend-mode:normal!important;
+}
+body.has-custom-cursor .custom-cursor,
+body.has-custom-cursor .custom-cursor.is-hover{
+  width:100%;
+  height:100%;
+  border:0;
+  background:transparent;
+  transform:none;
+}
+.smooth-cursor-follower{
+  position:absolute;
+  left:0;
+  top:0;
+  width:34px;
+  height:34px;
+  display:block;
+  border:1.5px solid #EF4444;
+  border-radius:50%;
+  background:rgba(239,68,68,.10);
+  box-shadow:0 0 12px rgba(239,68,68,.28),inset 0 0 8px rgba(239,68,68,.10);
+  will-change:transform;
+  transition:width .22s ease,height .22s ease,background .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+.smooth-cursor-follower i{
+  position:absolute;
+  width:6px;
+  height:6px;
+  left:50%;
+  top:50%;
+  border-radius:50%;
+  background:#EF4444;
+  box-shadow:0 0 9px rgba(239,68,68,.8);
+  transform:translate(-50%,-50%);
+}
+.custom-cursor.is-hover .smooth-cursor-follower{
+  width:50px;
+  height:50px;
+  border-color:#F87171;
+  background:rgba(239,68,68,.17);
+  box-shadow:0 0 20px rgba(239,68,68,.42),inset 0 0 10px rgba(239,68,68,.14);
+}
+.custom-cursor.is-hover .smooth-cursor-follower i{
+  width:8px;
+  height:8px;
+  background:#F87171;
+}
+.custom-cursor.is-pressed .smooth-cursor-follower{
+  width:27px;
+  height:27px;
+  background:rgba(185,28,28,.24);
+  border-color:#B91C1C;
+}
+@media(max-width:720px){.smooth-cursor-follower{display:none}}
+@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){
+  .smooth-cursor-follower{display:none}
+  body.has-custom-cursor,body.has-custom-cursor a,body.has-custom-cursor button{cursor:auto}
+}
