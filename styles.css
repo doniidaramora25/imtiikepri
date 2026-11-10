@@ -42,12 +42,7 @@ footer,.site-footer{background:#071426;color:#FFFFFF}
 
 
 /* Pointer interaction: custom cursor is enabled on fine-pointer desktop devices. */
-.custom-cursor{position:fixed;left:0;top:0;width:34px;height:34px;border:1px solid #DCE8F5;border-radius:50%;pointer-events:none;z-index:2000;opacity:0;transform:translate(-50%,-50%) scale(.72);transition:width .22s ease,height .22s ease,background .22s ease,border-color .22s ease,transform .22s ease,opacity .2s ease;mix-blend-mode:normal}
-.custom-cursor span{position:absolute;left:50%;top:50%;width:4px;height:4px;border-radius:50%;background:#DCE8F5;transform:translate(-50%,-50%);transition:transform .2s ease}
-body.has-custom-cursor,body.has-custom-cursor a,body.has-custom-cursor button{cursor:none}
-body.has-custom-cursor .custom-cursor{opacity:1}
-body.has-custom-cursor .custom-cursor.is-hover{width:54px;height:54px;background:rgba(220,232,245,.14);border-color:#FFFFFF;transform:translate(-50%,-50%) scale(1)}
-body.has-custom-cursor .custom-cursor.is-hover span{transform:translate(-50%,-50%) scale(1.8)}
+/* Legacy cursor rules removed; see Basic Cursor Follower styles below. */
 /* Editorial news cards respond to pointer hover and keyboard focus. */
 .feature-story,.story-list article{transition:transform .3s ease,background .3s ease,box-shadow .3s ease,border-color .3s ease}
 .feature-story{position:relative}
@@ -107,7 +102,7 @@ body.has-custom-cursor .custom-cursor.is-hover span{transform:translate(-50%,-50
   transition:opacity .12s ease,visibility .12s ease;
 }
 .custom-cursor.is-visible{opacity:1;visibility:visible}
-.cursor-follower-dot{
+.custom-cursor .cursor-follower-dot{
   position:absolute;
   left:0;
   top:0;
